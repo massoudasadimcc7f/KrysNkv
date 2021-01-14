@@ -33,9 +33,9 @@ spring:
       enabled: false
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/kmptDemo
-    username: kmptDemo
-    password:
+    url: jdbc:postgresql://localhost:5432/demo
+    username: postgres
+    password: TGg02/6o
     hikari:
       poolName: Hikari
       auto-commit: false
