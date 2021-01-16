@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="profileTypeRating">
+            <h2><span jhiTranslate="kmptDemoApp.profileTypeRating.detail.title">Profile Type Rating</span> {{profileTypeRating.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="kmptDemoApp.profileTypeRating.characteristic">Characteristic</span></dt>
+                <dd>
+                    <span>{{profileTypeRating.characteristic}}</span>
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.profileTypeRating.rating">Rating</span></dt>
+                <dd>
+                    <span>{{profileTypeRating.rating}}</span>
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.profileTypeRating.profileType">Profile Type</span></dt>
+                <dd>
+                    <div *ngIf="profileTypeRating.profileTypeId">
+                        <a [routerLink]="['/profile-type', profileTypeRating.profileTypeId, 'view']">{{profileTypeRating.profileTypeName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/profile-type-rating', profileTypeRating.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

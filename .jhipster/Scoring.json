@@ -1,0 +1,32 @@
+{
+    "name": "Scoring",
+    "fields": [
+        {
+            "fieldName": "score1",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "score2",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "profileVariant",
+            "otherEntityRelationshipName": "scoring",
+            "relationshipName": "profileVariant",
+            "otherEntityField": "name"
+        }
+    ],
+    "changelogDate": "20191219213257",
+    "entityTableName": "scoring",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="profileVariant">
+            <h2><span jhiTranslate="kmptDemoApp.profileVariant.detail.title">Profile Variant</span> {{profileVariant.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="kmptDemoApp.profileVariant.name">Name</span></dt>
+                <dd>
+                    <span>{{profileVariant.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.profileVariant.color">Color</span></dt>
+                <dd>
+                    <span>{{profileVariant.color}}</span>
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.profileVariant.profileType">Profile Type</span></dt>
+                <dd>
+                    <div *ngIf="profileVariant.profileTypeId">
+                        <a [routerLink]="['/profile-type', profileVariant.profileTypeId, 'view']">{{profileVariant.profileTypeName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/profile-variant', profileVariant.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

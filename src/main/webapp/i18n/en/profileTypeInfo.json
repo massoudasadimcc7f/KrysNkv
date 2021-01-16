@@ -1,0 +1,28 @@
+{
+  "kmptDemoApp": {
+    "profileTypeInfo": {
+      "home": {
+        "title": "Profile Type Infos",
+        "createLabel": "Create a new Profile Type Info",
+        "createOrEditLabel": "Create or edit a Profile Type Info",
+        "notFound": "No Profile Type Infos found"
+      },
+      "created": "A new Profile Type Info is created with identifier {{ param }}",
+      "updated": "A Profile Type Info is updated with identifier {{ param }}",
+      "deleted": "A Profile Type Info is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Profile Type Info {{ id }}?"
+      },
+      "detail": {
+        "title": "Profile Type Info"
+      },
+      "chapter": "Chapter",
+      "rank": "Rank",
+      "h1": "H 1",
+      "h2": "H 2",
+      "content": "Content",
+      "profileType": "Profile Type",
+      "profileVariant": "Profile Variant"
+    }
+  }
+}

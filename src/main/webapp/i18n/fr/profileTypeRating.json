@@ -1,0 +1,24 @@
+{
+  "kmptDemoApp": {
+    "profileTypeRating": {
+      "home": {
+        "title": "ProfileTypeRatings",
+        "createLabel": "Créer un nouveau Profile Type Rating",
+        "createOrEditLabel": "Créer ou éditer un Profile Type Rating",
+        "notFound": "Aucun Profile Type Rating trouvé"
+      },
+      "created": "Un nouveau Profile Type Rating a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Profile Type Rating avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Profile Type Rating avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Profile Type Rating {{ id }} ?"
+      },
+      "detail": {
+        "title": "Profile Type Rating"
+      },
+      "characteristic": "Characteristic",
+      "rating": "Rating",
+      "profileType": "Profile Type"
+    }
+  }
+}

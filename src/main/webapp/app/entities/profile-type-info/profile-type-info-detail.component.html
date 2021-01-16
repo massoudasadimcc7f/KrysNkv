@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="profileTypeInfo">
+            <h2><span jhiTranslate="kmptDemoApp.profileTypeInfo.detail.title">Profile Type Info</span> {{profileTypeInfo.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="kmptDemoApp.profileTypeInfo.chapter">Chapter</span></dt>
+                <dd>
+                    <span>{{profileTypeInfo.chapter}}</span>
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.profileTypeInfo.rank">Rank</span></dt>
+                <dd>
+                    <span>{{profileTypeInfo.rank}}</span>
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.profileTypeInfo.h1">H 1</span></dt>
+                <dd>
+                    <span>{{profileTypeInfo.h1}}</span>
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.profileTypeInfo.h2">H 2</span></dt>
+                <dd>
+                    <span>{{profileTypeInfo.h2}}</span>
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.profileTypeInfo.content">Content</span></dt>
+                <dd>
+                    <span>{{profileTypeInfo.content}}</span>
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.profileTypeInfo.profileType">Profile Type</span></dt>
+                <dd>
+                    <div *ngIf="profileTypeInfo.profileTypeId">
+                        <a [routerLink]="['/profile-type', profileTypeInfo.profileTypeId, 'view']">{{profileTypeInfo.profileTypeName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.profileTypeInfo.profileVariant">Profile Variant</span></dt>
+                <dd>
+                    <div *ngIf="profileTypeInfo.profileVariantId">
+                        <a [routerLink]="['/profile-variant', profileTypeInfo.profileVariantId, 'view']">{{profileTypeInfo.profileVariantName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/profile-type-info', profileTypeInfo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

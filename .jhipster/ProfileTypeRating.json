@@ -1,0 +1,32 @@
+{
+    "name": "ProfileTypeRating",
+    "fields": [
+        {
+            "fieldName": "characteristic",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rating",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "profileType",
+            "otherEntityRelationshipName": "profileTypeRating",
+            "relationshipName": "profileType",
+            "otherEntityField": "name"
+        }
+    ],
+    "changelogDate": "20191219213255",
+    "entityTableName": "profile_type_rating",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

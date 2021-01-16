@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="profile">
+            <h2><span jhiTranslate="kmptDemoApp.profile.detail.title">Profile</span> {{profile.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="kmptDemoApp.profile.name">Name</span></dt>
+                <dd>
+                    <span>{{profile.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.profile.jobTitle">Job Title</span></dt>
+                <dd>
+                    <span>{{profile.jobTitle}}</span>
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.profile.notes">Notes</span></dt>
+                <dd>
+                    <span>{{profile.notes}}</span>
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.profile.me">Me</span></dt>
+                <dd>
+                    <span>{{profile.me}}</span>
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.profile.relation">Relation</span></dt>
+                <dd>
+                    <span>{{profile.relation}}</span>
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.profile.profileVariant">Profile Variant</span></dt>
+                <dd>
+                    <div *ngIf="profile.profileVariantId">
+                        <a [routerLink]="['/profile-variant', profile.profileVariantId, 'view']">{{profile.profileVariantName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.profile.user">User</span></dt>
+                <dd>
+                    {{profile.userLogin}}
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.profile.question">Question</span></dt>
+                <dd>
+                    <span *ngFor="let question of profile.questions; let last = last">
+                        <a [routerLink]="['/question', question?.id, 'view' ]">{{question.answer}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/profile', profile.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

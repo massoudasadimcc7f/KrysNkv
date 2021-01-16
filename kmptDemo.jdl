@@ -1,0 +1,67 @@
+entity Question {
+    questionSet Integer,
+    question Integer,
+    answer String,
+    description String,
+    tag String,
+    score Integer
+}
+
+entity Profile {
+    name String,
+    jobTitle String,
+    notes String,
+    me Boolean,
+    relation String
+}
+
+entity ProfileType {
+    name String,
+	description String
+}
+
+entity ProfileTypeInfo {
+	chapter String,
+	rank Integer,
+	h1 String,
+	h2 String,
+	content String
+}
+
+entity ProfileTypeRating {
+    characteristic String,
+	rating Integer
+}
+
+entity ProfileVariant {
+    name String,
+    color String
+}
+
+entity Scoring {
+    score1 Integer,
+    score2 Integer
+}
+
+
+relationship ManyToOne {
+    Profile{profileVariant(name)} to ProfileVariant,
+    Profile{user(login)} to User,
+    ProfileTypeInfo{profileType(name)} to ProfileType,
+    ProfileTypeInfo{profileVariant(name)} to ProfileVariant,
+    ProfileTypeRating{profileType(name)} to ProfileType,
+    ProfileVariant{profileType(name)} to ProfileType,
+    Scoring{profileVariant(name)} to ProfileVariant
+}
+
+relationship ManyToMany {
+	Profile{Question(answer)} to Question{profile}
+}
+
+// Set pagination options
+paginate Scoring, Question, ProfileVariant, ProfileTypeRating, ProfileTypeInfo, ProfileType, Profile with pagination
+dto * with mapstruct
+service all with serviceClass
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

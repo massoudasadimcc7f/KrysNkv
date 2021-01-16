@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="question">
+            <h2><span jhiTranslate="kmptDemoApp.question.detail.title">Question</span> {{question.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="kmptDemoApp.question.questionSet">Question Set</span></dt>
+                <dd>
+                    <span>{{question.questionSet}}</span>
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.question.question">Question</span></dt>
+                <dd>
+                    <span>{{question.question}}</span>
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.question.answer">Answer</span></dt>
+                <dd>
+                    <span>{{question.answer}}</span>
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.question.description">Description</span></dt>
+                <dd>
+                    <span>{{question.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.question.tag">Tag</span></dt>
+                <dd>
+                    <span>{{question.tag}}</span>
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.question.score">Score</span></dt>
+                <dd>
+                    <span>{{question.score}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/question', question.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

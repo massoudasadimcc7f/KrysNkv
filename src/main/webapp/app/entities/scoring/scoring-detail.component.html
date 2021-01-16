@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="scoring">
+            <h2><span jhiTranslate="kmptDemoApp.scoring.detail.title">Scoring</span> {{scoring.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="kmptDemoApp.scoring.score1">Score 1</span></dt>
+                <dd>
+                    <span>{{scoring.score1}}</span>
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.scoring.score2">Score 2</span></dt>
+                <dd>
+                    <span>{{scoring.score2}}</span>
+                </dd>
+                <dt><span jhiTranslate="kmptDemoApp.scoring.profileVariant">Profile Variant</span></dt>
+                <dd>
+                    <div *ngIf="scoring.profileVariantId">
+                        <a [routerLink]="['/profile-variant', scoring.profileVariantId, 'view']">{{scoring.profileVariantName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/scoring', scoring.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

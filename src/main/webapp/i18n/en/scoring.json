@@ -1,0 +1,24 @@
+{
+  "kmptDemoApp": {
+    "scoring": {
+      "home": {
+        "title": "Scorings",
+        "createLabel": "Create a new Scoring",
+        "createOrEditLabel": "Create or edit a Scoring",
+        "notFound": "No Scorings found"
+      },
+      "created": "A new Scoring is created with identifier {{ param }}",
+      "updated": "A Scoring is updated with identifier {{ param }}",
+      "deleted": "A Scoring is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Scoring {{ id }}?"
+      },
+      "detail": {
+        "title": "Scoring"
+      },
+      "score1": "Score 1",
+      "score2": "Score 2",
+      "profileVariant": "Profile Variant"
+    }
+  }
+}

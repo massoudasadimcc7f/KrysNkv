@@ -1,0 +1,32 @@
+{
+    "name": "ProfileVariant",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "color",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "profileType",
+            "otherEntityRelationshipName": "profileVariant",
+            "relationshipName": "profileType",
+            "otherEntityField": "name"
+        }
+    ],
+    "changelogDate": "20191219213256",
+    "entityTableName": "profile_variant",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

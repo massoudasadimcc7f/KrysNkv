@@ -1,0 +1,71 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="kmptDemoApp.profileTypeRating.home.title">Profile Type Ratings</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-profile-type-rating" [routerLink]="['/profile-type-rating/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="kmptDemoApp.profileTypeRating.home.createLabel">
+            Create a new Profile Type Rating
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="profileTypeRatings?.length === 0">
+        <span jhiTranslate="kmptDemoApp.profileTypeRating.home.notFound">No profileTypeRatings found</span>
+    </div>
+    <div class="table-responsive" *ngIf="profileTypeRatings?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="characteristic"><span jhiTranslate="kmptDemoApp.profileTypeRating.characteristic">Characteristic</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="rating"><span jhiTranslate="kmptDemoApp.profileTypeRating.rating">Rating</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="profileTypeName"><span jhiTranslate="kmptDemoApp.profileTypeRating.profileType">Profile Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let profileTypeRating of profileTypeRatings ;trackBy: trackId">
+                <td><a [routerLink]="['/profile-type-rating', profileTypeRating.id, 'view' ]">{{profileTypeRating.id}}</a></td>
+                <td>{{profileTypeRating.characteristic}}</td>
+                <td>{{profileTypeRating.rating}}</td>
+                <td>
+                    <div *ngIf="profileTypeRating.profileTypeId">
+                        <a [routerLink]="['/profile-type', profileTypeRating.profileTypeId , 'view' ]" >{{profileTypeRating.profileTypeName}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/profile-type-rating', profileTypeRating.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/profile-type-rating', profileTypeRating.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(profileTypeRating)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="profileTypeRatings?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>
